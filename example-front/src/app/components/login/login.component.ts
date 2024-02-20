@@ -17,7 +17,7 @@ export class LoginComponent {
 
   public onSubmit() {
     this.authService.onLogin(this.username, this.password).subscribe({
-      next: (response) => console.log(response),
+      next: () => {},
     });
   }
 }
