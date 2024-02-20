@@ -82,6 +82,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		body.put("expires_in", EXPIRATION_TIME);
 		body.put("token_type", PREFIX_TOKEN);
 
+		this.info("Successfull authentication");
 		this.setReponse(response, body, HttpStatus.OK, MediaType.APPLICATION_JSON);
 	}
 
