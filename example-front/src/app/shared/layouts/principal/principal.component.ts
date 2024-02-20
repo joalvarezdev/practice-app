@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'component-principal',
   standalone: true,
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './principal.component.html',
-  styleUrl: './principal.component.css'
+  styleUrl: './principal.component.css',
 })
-export class PrincipalComponent {
-
-}
+export class PrincipalComponent {}

@@ -90,6 +90,7 @@ h2 {
   transition: 0.5s;
 }
 
+.input-box input:valid ~ span,
 .input-box input:focus ~ span {
   color: #45f3ff;
   transform: translateX(-10px) translateY(-30px);
@@ -109,6 +110,7 @@ h2 {
   z-index: 9;
 }
 
+.input-box input:valid ~ i,
 .input-box input:focus ~ i {
   height: 44px;
 }
