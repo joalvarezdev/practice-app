@@ -15,14 +15,14 @@ export const routes: Routes = [
       },
     ],
   },
-  {
-    path: '',
-    component: PrincipalComponent,
-    children: [
-      {
-        path: '/home',
-        component: HomeComponent,
-      },
-    ],
-  },
+  // {
+  //   path: '/lala',
+  //   component: PrincipalComponent,
+  //   children: [
+  //     {
+  //       path: '/home',
+  //       component: HomeComponent,
+  //     },
+  //   ],
+  // },
 ];
