@@ -1,2 +1,10 @@
-<p>principal works!</p>
-<router-outlet />
+<component-sidenav (onToggleSidebar)="onToggleSidebar($event)" />
+<section
+  [ngClass]="{
+    'body-container': true,
+    'body-md-screen': this.isSmallScreen(),
+    'body-trimmed': this.isLargeScreen(),
+  }"
+>
+  <router-outlet />
+</section>

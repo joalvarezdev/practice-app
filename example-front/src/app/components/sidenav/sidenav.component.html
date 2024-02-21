@@ -1,0 +1,27 @@
+<div class="sidenav" [ngClass]="{ 'sidenav-collapsed': this.isCollapsed() }">
+  <div class="logo-container">
+    <button class="logo" (click)="this.toggleSidebar()">A</button>
+    @if (this.isCollapsed()) {
+    <div class="logo-text" @fadeInOut>Angular</div>
+    <button class="btn-close" @rotate (click)="this.closeSidebar()">
+      <i class="fa-solid fa-xmark close-icon"></i>
+    </button>
+    }
+  </div>
+  <ul class="sidenav-nav">
+    @for (item of this.getSidenavData(); track $index) {
+    <li class="sidenav-nav-item">
+      <a
+        [routerLink]="[item.routerLink]"
+        class="sidenav-nav-link"
+        routerLinkActive="active"
+      >
+        <i class=" sidenav-link-icon {{ item.icon }}"></i>
+        @if(this.isCollapsed()) {
+        <span class="sidenav-link-text" @fadeInOut>{{ item.label }}</span>
+        }
+      </a>
+    </li>
+    }
+  </ul>
+</div>

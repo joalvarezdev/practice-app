@@ -5,6 +5,7 @@ import { PrincipalComponent } from './shared/layouts/principal/principal.compone
 import { HomeComponent } from './components/home/home.component';
 import { authGuard } from './guards/auth.guard';
 import { userGuard } from './guards/user.guard';
+import { ProductsComponent } from './components/products/products.component';
 
 export const routes: Routes = [
   {
@@ -26,6 +27,10 @@ export const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent,
+      },
+      {
+        path: 'products',
+        component: ProductsComponent,
       },
     ],
   },
