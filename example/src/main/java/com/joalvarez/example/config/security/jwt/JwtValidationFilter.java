@@ -34,19 +34,15 @@ public class JwtValidationFilter extends BasicAuthenticationFilter{
 
 		String header = request.getHeader(HEADER_AUTHORIZATION);
 
-		if (Objects.isNull(header) || !header.startsWith(PREFIX_TOKEN)) {
+		String token = JwtConstants.getAccessToken(header);
+
+		if (token.isEmpty()) {
 			chain.doFilter(request, response);
 			return;
 		}
 
-		String token = header.replace(PREFIX_TOKEN, "");
-
 		try {
-			Claims claims = Jwts.parser()
-				.verifyWith(SECRET_KEY)
-				.build()
-				.parseSignedClaims(token)
-				.getPayload();
+			Claims claims = JwtConstants.getClaims(token);
 
 			String username = claims.getSubject();
 			Object authorityClaims = claims.get("authorities");

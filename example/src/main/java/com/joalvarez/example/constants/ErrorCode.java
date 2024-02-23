@@ -2,6 +2,7 @@ package com.joalvarez.example.constants;
 
 public enum ErrorCode implements IResponse {
 
+	USER_UNIDENTIFIED(7000, "The access_token's userId isn't present or is unidentifiable"),
 	ATTRIBUTE_VALIDATION(8000, "Some provided attribute has a problem"),
 	CLIENT_CONNECTION_ERROR(8001, "The integration's client is unreachable or unavailable for the operation"),
 	CLIENT_BAD_REQUEST_ERROR(8002, "The integration's client indicated an error while performing this operation"),
