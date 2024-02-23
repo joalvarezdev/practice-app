@@ -16,7 +16,6 @@ export class AuthService {
       username,
       password,
     };
-    console.log(`${apiRequests.authEndpoint.login}`);
     return this.http
       .post<ITokenResponse>(`${apiRequests.authEndpoint.login}`, data)
       .pipe(
@@ -28,5 +27,9 @@ export class AuthService {
           return response;
         })
       );
+  }
+
+  public onLogout() {
+    this.tokenService.removeToken();
   }
 }

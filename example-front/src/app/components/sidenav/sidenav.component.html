@@ -23,5 +23,13 @@
       </a>
     </li>
     }
+    <li class="sidenav-nav-item">
+      <a class="sidenav-nav-link" (click)="this.logOut()">
+        <i class="sidenav-link-icon fa-solid fa-right-from-bracket"></i>
+        @if(this.isCollapsed()) {
+        <span class="sidenav-link-text" @fadeInOut>LogOut</span>
+        }
+      </a>
+    </li>
   </ul>
 </div>

@@ -16,6 +16,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'component-sidenav',
@@ -52,6 +53,8 @@ export class SidenavComponent implements OnInit {
   collapsed = false;
   private sidenavData = navData;
   screenWidth = 0;
+
+  constructor(private authService: AuthService) {}
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -91,5 +94,9 @@ export class SidenavComponent implements OnInit {
 
   public getSidenavData() {
     return this.sidenavData;
+  }
+
+  public logOut() {
+    this.authService.onLogout();
   }
 }
