@@ -8,15 +8,17 @@ export const httpInterceptor: HttpInterceptorFn = (req, next) => {
   const tokenService = inject(TokenService);
   const router = inject(Router);
 
-  // tokenService.getIsAuthenticated().subscribe({
-  //   next: (value) => {
-  //     if (value) => {
-  //       req = req.clone({
-
-  //       })
-  //     }
-  //   }
-  // })
+  tokenService.getIsAuthenticated().subscribe({
+    next: (value) => {
+      if (value) {
+        req = req.clone({
+          setHeaders: {
+            Authorization: `Bearer ${tokenService.getToken()}`,
+          },
+        });
+      }
+    },
+  });
 
   return next(req).pipe(
     catchError((e: HttpErrorResponse) => {
