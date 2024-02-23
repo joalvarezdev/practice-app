@@ -1,3 +1,5 @@
+## ADMIN
+
 ### LOGIN
 POST {{base-url}}/login
 Content-Type: application/json
@@ -5,4 +7,59 @@ Content-Type: application/json
 {
   "username": "admin",
   "password": "{{password}}"
+}
+
+### CREATE USER
+POST {{base-url}}/users/register
+Authorization: Bearer {{admin-token}}
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "password": "pass",
+  "email": "user1@gmail.com",
+  "enabled": true,
+  "isAdmin": false
+}
+
+### FIND ALL PRODUCTS
+GET {{base-url}}/products
+Authorization: Bearer {{admin-token}}
+
+### CREATE PRODUCT
+POST {{base-url}}/products
+Authorization: Bearer {{admin-token}}
+Content-Type: application/json
+
+{
+  "sku": "AR0001",
+  "name": "Manaos",
+  "description": "Una descripción descriptiva"
+}
+
+####
+
+# User1
+### LOGIN USER1
+POST {{base-url}}/login
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "password": "{{password}}"
+}
+
+### FIND ALL PRODUCTS | USER1
+GET {{base-url}}/products
+Authorization: Bearer {{user1-token}}
+
+### CREATE PRODUCT | USER1
+POST {{base-url}}/products
+Authorization: Bearer {{user1-token}}
+Content-Type: application/json
+
+{
+  "sku": "US0001",
+  "name": "Coca-Cola",
+  "description": "Una descripción descriptiva"
 }
