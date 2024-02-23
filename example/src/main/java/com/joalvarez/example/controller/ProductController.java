@@ -28,4 +28,9 @@ public class ProductController {
 	public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO dto) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(this.service.create(dto));
 	}
+
+	@GetMapping("{sku}")
+	public ResponseEntity<ProductDTO> findById(@PathVariable String sku) {
+		return ResponseEntity.ok(this.service.findBySKU(sku));
+	}
 }

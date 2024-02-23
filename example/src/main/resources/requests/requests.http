@@ -1,6 +1,6 @@
 ## ADMIN
 
-### LOGIN
+### LOGIN | ADMIN
 POST {{base-url}}/login
 Content-Type: application/json
 
@@ -22,25 +22,28 @@ Content-Type: application/json
   "isAdmin": false
 }
 
-### FIND ALL PRODUCTS
+### FIND ALL PRODUCTS | ADMIN
 GET {{base-url}}/products
 Authorization: Bearer {{admin-token}}
 
-### CREATE PRODUCT
+### CREATE PRODUCT | ADMIN
 POST {{base-url}}/products
 Authorization: Bearer {{admin-token}}
 Content-Type: application/json
 
 {
-  "sku": "AR0001",
-  "name": "Manaos",
-  "description": "Una descripción descriptiva"
+  "sku": "AR0002",
+  "name": "Pure de Tomate",
+  "description": "'Molto' x 520grs"
 }
 
-####
+### FIND PRODUCT BY SKU | ADMIN
+GET {{base-url}}/products/AR0002
+Authorization: Bearer {{admin-token}}
 
 # User1
-### LOGIN USER1
+
+### LOGIN | USER1
 POST {{base-url}}/login
 Content-Type: application/json
 
@@ -59,7 +62,7 @@ Authorization: Bearer {{user1-token}}
 Content-Type: application/json
 
 {
-  "sku": "US0001",
+  "sku": "SR10001",
   "name": "Coca-Cola",
   "description": "Una descripción descriptiva"
 }

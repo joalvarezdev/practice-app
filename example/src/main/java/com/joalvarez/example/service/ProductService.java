@@ -9,6 +9,7 @@ import com.joalvarez.example.service.interfaces.IProductService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ProductService extends GenericService<ProductDAO, ProductMapper> implements IProductService {
@@ -27,15 +28,6 @@ public class ProductService extends GenericService<ProductDAO, ProductMapper> im
 	@Override
 	public ProductDTO findById(Long id) {
 		return this.mapper.toDTO(this.dao.findById(id));
-/*
-		var product = this.dao.findById(id);
-
-		if (Objects.isNull(product)) {
-
-		}
-
-		return this.mapper.toDTO(product);
-*/
 	}
 
 	@Override
@@ -46,5 +38,14 @@ public class ProductService extends GenericService<ProductDAO, ProductMapper> im
 	@Override
 	public ProductDTO create(ProductDTO dto) {
 		return this.mapper.toDTO(this.dao.save(this.mapper.fromDTO(dto)));
+	}
+
+	@Override
+	public ProductDTO findBySKU(String sku) {
+		var product = this.dao.findBySKU(sku);
+
+		return Objects.nonNull(product)
+			? this.mapper.toDTO(product)
+			: null;
 	}
 }

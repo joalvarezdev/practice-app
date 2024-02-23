@@ -14,4 +14,8 @@ public class ProductDAO extends MultitenantDAO<ProductRepository, Product, Long>
 		super(repository, localStorage);
 	}
 
+	public Product findBySKU(String sku) {
+
+		return this.repository.findBySkuAndUserId(sku, this.getCurrentUserId());
+	}
 }
